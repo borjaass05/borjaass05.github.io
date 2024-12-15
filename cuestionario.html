@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+  
+    <style>
+/* Estilos generales */
+    body {
+        position: relative;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+        color: #333;
+        box-sizing: border-box;
+    }
+
+    header {
+        background: url('ADRICARLA.PNG') no-repeat center center/cover;
+        color: white;
+        padding: 4rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 65vh;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    header p {
+        margin: 0.5rem 0 0;
+    }
+
+/* Menú desplegable */
+    .menu-container {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+        }
+
+        .menu-panel.active {
+            right: 0;
+        }
+
+        .menu-panel a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 1rem 0;
+            transition: color 0.3s;
+        }
+
+        .menu-panel a:hover {
+            color: #4b8a4e; 
+        }
+    
+/* Estilos para el formulario */
+    .cuestionario {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: white;
+    }
+
+    .cuestionario h2 {
+        text-align: center;
+        color: #507263;
+    }
+
+    .form-section label {
+        display: block;
+        margin: 1rem 0 0.5rem;
+    }
+
+    .form-section input, .form-section select, .form-section button {
+        width: 100%;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; 
+    }
+
+    .form-section button {
+        background: #507263;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+    }
+
+    .form-section button:hover {
+        background: #4b8a4e;
+    }
+
+    /* Sección de invitados */
+    .guest-section {
+        margin-bottom: 1rem;
+    }
+
+    .guest-section h3 {
+        margin: 0.5rem 0;
+        color: #507263;
+    }
+    
+/* Aseguramos que el footer esté centrado */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+        background: #333;
+        color: white;
+    }
+
+/* Media Queries para dispositivos móviles y tabletas */
+    @media (max-width: 768px) {
+        header {
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .cuestionario {
+            padding: 1.5rem;
+        }
+
+        .form-section input, .form-section select, .form-section button {
+            font-size: 0.9rem; /* Reducir tamaño de los inputs y botones */
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        .cuestionario {
+            padding: 1rem;
+            margin: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            font-size: 1rem;
+            padding: 1rem;
+        }
+    }
+    </style>
+
+</head>
+<body>
+
+<!-- Encabezado -->
+    <header>
+        <div class="menu-container">
+            <button class="menu-button" id="menuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="menu-panel" id="menuPanel">
+                <a href="index.html">Bienvenidos</a>
+                <a href="cuestionario.html">Cuestionario</a>
+                <a href="contacto.html">Contactanos</a>
+                <a href="ubicaciones.html">Ubicaciones</a>
+                <a href="información.html">Más Información</a>
+            </div>
+        </div>
+    </header>
+
+<!-- Formulario de Confirmación -->
+    <section class="cuestionario">
+        <h2>CUESTIONARIO</h2>
+        <section id="confirmacion" class="form-section">
+            <form id="rsvpForm" action="https://formsubmit.co/borjafakesalido@gmail.com" method="POST" autocomplete="off">
+                <label for="numInvitados">Número de Personas que Asistirán:</label>
+                <input type="number" id="numInvitados" name="numInvitados" min="1" required autocomplete="off">
+
+                <div id="invitadosContainer"></div>
+
+                <button type="submit">Enviar Confirmación</button>
+            </form>
+        </section>
+    </section>
+
+<!-- Pie de página -->
+    <footer class="pie_pagina">
+        <p>&copy; BODA ADRIAN Y CARLA 2025.</p>
+        <img src="logoAC.png" width="150px">
+        <p>Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+// Menú desplegable
+        const menuButton = document.getElementById('menuButton');
+        const menuPanel = document.getElementById('menuPanel');
+
+        menuButton.addEventListener('click', () => {
+            menuPanel.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!menuButton.contains(event.target) && !menuPanel.contains(event.target)) {
+                menuPanel.classList.remove('active');
+            }
+        });
+
+        // Cerrar el menú al hacer clic en un enlace
+        const menuLinks = menuPanel.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuPanel.classList.remove('active');
+            });
+        });
+
+// Script para el formulario de invitados
+        const numInvitadosInput = document.getElementById('numInvitados');
+        const invitadosContainer = document.getElementById('invitadosContainer');
+
+        numInvitadosInput.addEventListener('input', () => {
+            const numInvitados = parseInt(numInvitadosInput.value);
+            invitadosContainer.innerHTML = '';
+
+            for (let i = 1; i <= numInvitados; i++) {
+                const guestSection = document.createElement('div');
+                guestSection.classList.add('guest-section');
+
+                guestSection.innerHTML = `
+                    <h3>Invitado ${i}</h3>
+                    <label for="guestName${i}">Nombre Completo:</label>
+                    <input type="text" id="guestName${i}" name="guestName${i}" required autocomplete="off">
+                    
+                    <label for="guestAllergies${i}">Alergias:</label>
+                    <input type="text" id="guestAllergies${i}" name="guestAllergies${i}" autocomplete="off">
+
+                    <label for="guestMusic${i}">Canción Favorita:</label>
+                    <input type="text" id="guestMusic${i}" name="guestMusic${i}" autocomplete="off">
+
+                    <div style="border-bottom: 2px solid #507263; margin: 1rem 0;"></div> 
+                `;
+
+                invitadosContainer.appendChild(guestSection);
+            }
+        });
+    </script>
+
+</body>
+</html>

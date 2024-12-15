@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+
+    <style>
+/* Estilos generales */
+    body {
+        position: relative;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+        color: #333;
+        box-sizing: border-box; /* Asegurarnos de que el padding y border no desborden los elementos */
+    }
+
+    header {
+        background: url('ADRICARLA.PNG') no-repeat center center/cover;
+        color: white;
+        padding: 4rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 65vh;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    header p {
+        margin: 0.5rem 0 0;
+    }
+
+/* Menú desplegable */
+        .menu-container {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+        }
+
+        .menu-panel.active {
+            right: 0;
+        }
+
+        .menu-panel a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 1rem 0;
+            transition: color 0.3s;
+        }
+
+        .menu-panel a:hover {
+            color: #4b8a4e; 
+        }    
+
+/* Sección de ubicaciones */
+    .ubicaciones {
+        margin: 2rem auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .ubicaciones h2 {
+        color: #507263;
+    }
+
+    .tarjetas {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    .tarjeta {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 1rem;
+        background: white;
+        text-align: center;
+        width: 250px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tarjeta img {
+        width: 100%;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .tarjeta h3 {
+        margin: 0.5rem 0;
+        color: #507263;
+    }
+
+/* Aseguramos que el footer esté centrado */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+        background: #333;
+        color: white;
+    }
+
+    .imgagen_pie_pagina {
+        width: 12px;
+        height: 7px;
+        border-radius: 20px;
+    }
+
+    .pie-pagina{
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+        background: #333;
+        color: white;
+        margin-top: 20px;
+        width: 100%;
+        bottom: 100px;
+        margin-bottom: 0px;
+        border-radius: 10px;
+    }
+
+/* Media Queries para dispositivos móviles y tabletas */
+    @media (max-width: 768px) {
+        header {
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .tarjetas {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center; 
+        }
+
+        .tarjeta {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .tarjetas img {
+            max-width: 100%;
+            margin: 0 auto 1rem; 
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        .tarjetas {
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .tarjeta {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        footer {
+            font-size: 1rem;
+            padding: 1rem;
+        }
+    }
+    </style>
+
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="menu-container">
+            <button class="menu-button" id="menuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="menu-panel" id="menuPanel">
+                <a href="index.html">Bienvenidos</a>
+                <a href="cuestionario.html">Cuestionario</a>
+                <a href="contacto.html">Contactanos</a>
+                <a href="ubicaciones.html">Ubicaciones</a>
+                <a href="información.html">Más Información</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Ubicaciones -->
+    <section class="ubicaciones">
+        <h2>Ubicaciones</h2>
+        <div class="tarjetas">
+            <div class="tarjeta">
+                <a href="https://www.google.es/maps/place/Iglesia+de+San+Andr%C3%A9s+Ap%C3%B3stol/@40.1910266,-3.844952,3445m/data=!3m1!1e3!4m6!3m5!1s0xd41f30066b13895:0x3d560604b78e7376!8m2!3d40.1915757!4d-3.8378917!16s%2Fm%2F0h3lpj9?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D">
+                    <img src="Iglesia de San Andrés Apóstol.png" alt="Código QR para la ubicación de la Iglesia de San Andrés Apóstol">
+                </a>
+                <h3>Iglesia de San Andrés Apóstol</h3>
+            </div>
+            <div class="tarjeta">
+                <a href="https://www.google.es/maps/place/Finca+Prados+Moros/@40.6557133,-4.0984629,855m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd410c9083866791:0x73d45adc37c29a00!8m2!3d40.6557093!4d-4.095888!16s%2Fg%2F1tkb6dhs?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D">
+                    <img src="Finca Prados Moros.png" alt="Código QR para la ubicación de la recepción en Finca Prados Moros">
+                </a>
+                <h3>Finca Prados Moros</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="pie_pagina">
+        <p>&copy; BODA ADRIAN Y CARLA 2025.</p>
+        <img src="logoAC.png" width="150px">
+        <p>Todos los derechos reservados</p>
+    </footer>
+    
+    <script>
+// Menú desplegable
+        const menuButton = document.getElementById('menuButton');
+        const menuPanel = document.getElementById('menuPanel');
+
+        menuButton.addEventListener('click', () => {
+            menuPanel.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!menuButton.contains(event.target) && !menuPanel.contains(event.target)) {
+                menuPanel.classList.remove('active');
+            }
+        });
+
+        // Cerrar el menú al hacer clic en un enlace
+        const menuLinks = menuPanel.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuPanel.classList.remove('active');
+            });
+        }); 
+    </script>
+
+</body>
+</html>
+
